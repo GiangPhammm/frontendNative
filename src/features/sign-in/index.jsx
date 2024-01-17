@@ -9,11 +9,10 @@ import {
 
 import {Button} from '../button'
 
-import {register} from './utils';
+import {signin} from './utils';
 
-/** @param {any} navigation */
-export const SignUp = ({navigation}) => {
-    const [username, setUsername] = useState('');
+export const SignIn = () => {
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     return (
@@ -21,13 +20,13 @@ export const SignUp = ({navigation}) => {
             <Text
                 style={styles.headline}
             >
-                {'Create an account'}
+                {'Welcome back'}
             </Text>
             <TextInput
                 style={styles.input}
-                value={username}
+                value={email}
                 placeholder={'Username'} 
-                onChangeText={(text) => setUsername(text)}
+                onChangeText={(text) => setEmail(text)}
                 autoCapitalize={'none'}
             />
             <TextInput
@@ -39,13 +38,8 @@ export const SignUp = ({navigation}) => {
             />
             <Button
                 title={'Sign Up'}
-                onPress={() => register(username, password)}
+                onPress={() => signin(email, password)}
             />
-            <Text
-                onPress={() => navigation.navigate('Camera')}
-            >
-                {'Scan QR Code'}
-            </Text>
         </View>
     );
 }

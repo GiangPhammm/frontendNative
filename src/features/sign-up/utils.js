@@ -1,8 +1,13 @@
 import {Alert} from 'react-native';
 import {TEST_ACCOUNTS} from './test-accounts'; // Test database
 
+
 // TODO: Add register API
-export const register = async (username, password) => {
+/**
+ * @param {string} username 
+ * @param {string} password 
+ */
+export const register = (username, password) => {
     let userExist = false;
     if (!username || !password) {
         Alert.alert(

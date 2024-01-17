@@ -2,17 +2,14 @@ import {
     View,
     Image,
     StyleSheet,
-    Dimensions,
     Text,
-    Linking
 } from 'react-native';
 
 import testImage from '../../static/images/testImage.png'
 
 import {Button} from '../button';
 
-const win = Dimensions.get('window');
-
+/** @param {any} navigation */
 export const Welcome = ({navigation}) => {
     return (
       <View style={styles.container}>
@@ -22,14 +19,13 @@ export const Welcome = ({navigation}) => {
             />
 
             <Button 
-                style={styles.primaryBtn}
                 title='Create an account'
                 onPress={() => navigation.navigate('Signup')}
             />
 
             <Text
                 style={styles.signinText}
-                onPress={() => Linking.openURL('http://google.com')}
+                onPress={() => navigation.navigate('Signin')}
             >
                 {'Sign in'}
             </Text>
