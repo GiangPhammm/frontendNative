@@ -1,36 +1,40 @@
 import {Alert} from 'react-native';
-import {TEST_ACCOUNTS} from './test-accounts'; // Test database
 
-
-// TODO: Add register API
+const APP_URL = 'https://thanhcong-asia-gmbh.de';
+const SIGNUP_ENDPOINT = 'https://woopick-backend-2plmu3pwka-ey.a.run.app/api/v1/auth/signup';
+const TOKEN = 'ck_e6941fc46998e2bd52584d99039dc6a6a8038338|cs_c3b4e30220a99465738b32d3a8894471b849378f';
 /**
- * @param {string} username 
+ * @param {string} email 
+ * @param {string} username
  * @param {string} password 
  */
-export const register = (username, password) => {
-    let userExist = false;
-    if (!username || !password) {
+export const register = async (username, email, password) => {
+    if (!email || !password) {
         Alert.alert(
             'Please fill in required fields',
         );
     }
 
-    if (username && password) {
-        TEST_ACCOUNTS.forEach((account) => {
-            if (username === account.username) {
-                userExist = true;
-            }
-        })
+    if (email && password) {
+        try {
+            const response = await fetch(SIGNUP_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    appURL: APP_URL,
+                    email: email,
+                    username: username,
+                    password: password,
+                    token: TOKEN,
+                }),
+            }).then((res) => res.json());
 
-        if (userExist) {
-            Alert.alert(
-                'Username already exists',
-            );
-        } else {
-            Alert.alert(
-                'Success!',
-                `User ${username} was successfully created!`,
-            );
+            console.log(response)
+
+        } catch (error) {
+            console.error(error)
         }
     }
 };

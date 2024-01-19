@@ -11,7 +11,8 @@ import {Button} from '../button'
 
 import {signin} from './utils';
 
-export const SignIn = () => {
+/** @param {any} navigation */
+export const SignIn = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -25,7 +26,8 @@ export const SignIn = () => {
             <TextInput
                 style={styles.input}
                 value={email}
-                placeholder={'Username'} 
+                placeholder={'Email'}
+                placeholderTextColor="#000"
                 onChangeText={(text) => setEmail(text)}
                 autoCapitalize={'none'}
             />
@@ -33,13 +35,26 @@ export const SignIn = () => {
                 style={styles.input}
                 value={password}
                 placeholder={'Password'}
+                placeholderTextColor="#000"
                 secureTextEntry
                 onChangeText={(text) => setPassword(text)}
             />
             <Button
-                title={'Sign Up'}
+                title={'Sign In'}
                 onPress={() => signin(email, password)}
             />
+            <Text
+                style={styles.link}
+                onPress={() => navigation.navigate('Scanner')}
+            >
+                {'Scan QR Code'}
+            </Text>
+            <Text
+                style={styles.link}
+                onPress={() => navigation.navigate('Signup')}
+            >
+                {'Sign up'}
+            </Text>
         </View>
     );
 }
@@ -56,6 +71,7 @@ const styles = StyleSheet.create({
     headline: {
         fontSize: 20,
         marginBottom: 25,
+        color: '#000'
     },
 
     input: {
@@ -68,6 +84,10 @@ const styles = StyleSheet.create({
     signUpBtn: {
         width: 'auto',
         marginBottom: 20
-    }
+    },
 
+    link: {
+        marginTop: 20,
+        color: '#000'
+    }
 });

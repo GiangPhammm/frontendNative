@@ -1,6 +1,6 @@
 import {Alert} from 'react-native';
 
-const signinEndpoint = 'https://woopick-backend-2plmu3pwka-ey.a.run.app/api/v1/auth/signin';
+const SIGNIN_ENDPOINT = 'https://woopick-backend-2plmu3pwka-ey.a.run.app/api/v1/auth/signin';
 
 /**
  * @param {string} email
@@ -15,7 +15,7 @@ export const signin = async (email, password) => {
 
     if (email && password) {
         try {
-            const response = await fetch(signinEndpoint, {
+            const response = await fetch(SIGNIN_ENDPOINT, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
