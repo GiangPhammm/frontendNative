@@ -13,35 +13,35 @@ import {
 import {logoSvg} from '../assets/logo';
 
 export const SignupScreen = (/** @type {any} */ {navigation}) => {
-  // const dispatch = useDispatch<AppDispatch>();
+    // const dispatch = useDispatch<AppDispatch>();
 
-  const [checked, setChecked] = useState(false);
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+    const [checked, setChecked] = useState(false);
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [passwordConfirmation, setPasswordConfirmation] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
-  // const handleOnPressSignUp = async () => {
-  //   try {
-  //     setIsLoading(true);
-  //     await dispatch(
-  //       signup({
-  //         email,
-  //         username,
-  //         password,
-  //         passwordConfirmation,
-  //       })
-  //     ).unwrap();
-  
-  //     // Successfully signed up, navigate to the MainMenuScreen
-  //     navigation.navigate('MainMenuScreen');
-  //   } catch (error) {
-  //     isApiValidationErrorResponse(error) ? Alert.alert('Error ', error.message) : Alert.alert('Error');
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
+    // const handleOnPressSignUp = async () => {
+    //   try {
+    //     setIsLoading(true);
+    //     await dispatch(
+    //       signup({
+    //         email,
+    //         username,
+    //         password,
+    //         passwordConfirmation,
+    //       })
+    //     ).unwrap();
+    
+    //     // Successfully signed up, navigate to the MainMenuScreen
+    //     navigation.navigate('MainMenuScreen');
+    //   } catch (error) {
+    //     isApiValidationErrorResponse(error) ? Alert.alert('Error ', error.message) : Alert.alert('Error');
+    //   } finally {
+    //     setIsLoading(false);
+    //   }
+    // };
 
     return (
         <SafeAreaView style={globalStyle.container}>
@@ -52,26 +52,26 @@ export const SignupScreen = (/** @type {any} */ {navigation}) => {
 
             <View style={globalStyle.section}>
                 <InputField
-                placeholder={'Email'}
-                value={email}
-                action={text => setEmail(text)}
+                    placeholder={'Email'}
+                    value={email}
+                    action={text => setEmail(text)}
                 />
                 <InputField
-                placeholder={'Username'}
-                value={username}
-                action={text => setUsername(text)}
+                    placeholder={'Username'}
+                    value={username}
+                    action={text => setUsername(text)}
                 />
                 <InputField
-                placeholder={'Password'}
-                value={password}
-                action={text => setPassword(text)}
-                isPassword
+                    placeholder={'Password'}
+                    value={password}
+                    action={text => setPassword(text)}
+                    isPassword
                 />
                 <InputField
-                placeholder={'Confirm Password'}
-                value={passwordConfirmation}
-                action={text => setPasswordConfirmation(text)}
-                isPassword
+                    placeholder={'Confirm Password'}
+                    value={passwordConfirmation}
+                    action={text => setPasswordConfirmation(text)}
+                    isPassword
                 />
 
                 <Text>

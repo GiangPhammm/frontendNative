@@ -20,44 +20,44 @@ export const GRAY_02 = '#E8E8E8';
 export const GRAY_03 = '#BDBDBD';
 
 export const globalStyle = EStyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: MAIN_BG_COLOR
-  },
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        backgroundColor: MAIN_BG_COLOR
+    },
 
-  mainContent: {
-    alignItems: 'center',
-    paddingBottom: '40rem',
-    color: BLACKCOLOR,
-  },
+    mainContent: {
+        alignItems: 'center',
+        paddingBottom: '40rem',
+        color: BLACKCOLOR,
+    },
 
-  logo: {
-    resizeMode: 'contain'
-  },
+    logo: {
+        resizeMode: 'contain'
+    },
 
-  heading1: {
-    fontSize: '30rem',
-    fontWeight: '700',
-    lineHeight: '51rem',
-    paddingVertical: '8rem',
-    textAlign: 'center',
-    color: BLACKCOLOR
-  },
+    heading1: {
+        fontSize: '30rem',
+        fontWeight: '700',
+        lineHeight: '51rem',
+        paddingVertical: '8rem',
+        textAlign: 'center',
+        color: BLACKCOLOR
+    },
 
-  paragraph: {
-    fontSize: '16rem',
-    fontWeight: '400',
-    lineHeight: '20rem',
-    textAlign: 'center',
-    color: BLACKCOLOR
-  },
+    paragraph: {
+        fontSize: '16rem',
+        fontWeight: '400',
+        lineHeight: '20rem',
+        textAlign: 'center',
+        color: BLACKCOLOR
+    },
 
-  section: {
-    marginTop: '30rem',
-  },
+    section: {
+        marginTop: '30rem',
+    },
 
-  hyperlink: {
-    color: 'linear-gradient(0deg, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56))'
-  }
+    hyperlink: {
+        color: 'linear-gradient(0deg, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56))'
+    }
 });
