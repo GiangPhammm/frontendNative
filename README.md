@@ -1,4 +1,4 @@
-This is a new React Native frontend project
+This is a React Native frontend project
 
 ## Install
 
