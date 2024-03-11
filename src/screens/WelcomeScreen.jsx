@@ -6,23 +6,24 @@ import {
 } from 'react-native';
 import {Text} from 'react-native-paper';
 import {SvgXml} from 'react-native-svg';
-import SplashScreen from 'react-native-splash-screen';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {logoSvg} from '../assets/logo';
 import {BLACKCOLOR, WHITECOLOR} from '../theme';
+import SplashScreen from 'react-native-splash-screen';
 
 export const WelcomeScreen = (/** @type {any} */ {navigation}) => {
+    const handleToken = async () => {
+        const dataToken = await AsyncStorage.getItem('AccessToken');
+        if (dataToken) {
+            navigation.replace('HomeScreen');
+        }
+    }
+
     useEffect(() => {
         SplashScreen.hide();
-    });
-
-    const goToLoginScreen = () => {
-        navigation.navigate('LoginScreen');
-    };
-
-    const goToRegisterScreen = () => {
-        navigation.navigate('SignupScreen');
-    };
+        handleToken();
+    })
 
     return (
         <View style={styles.container}>
@@ -37,11 +38,17 @@ export const WelcomeScreen = (/** @type {any} */ {navigation}) => {
         </View>
         <View style={styles.subContainerThree}>
             <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={goToLoginScreen}>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate('LoginScreen')}
+            >
                 <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
             <Text style={styles.separator}> | </Text>
-            <TouchableOpacity style={styles.button} onPress={goToRegisterScreen}>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate('SignupScreen')}
+            >
                 <Text style={styles.buttonText}>Register</Text>
             </TouchableOpacity>
             </View>

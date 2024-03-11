@@ -10,7 +10,7 @@ const drawerList = [
   {
     label: 'Dashboard',
     icon:'view-dashboard',
-    component: 'MainMenuScreen',
+    component: 'HomeScreen',
   },
   {
     label: 'Products',

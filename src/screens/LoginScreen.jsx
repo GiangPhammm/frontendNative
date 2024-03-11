@@ -2,30 +2,33 @@ import React, {useState} from 'react';
 import {View, Text, SafeAreaView, Pressable} from 'react-native';
 import {SvgXml} from 'react-native-svg';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {InputField} from '../components/InputField';
 import {Button} from '../components/Button';
 import {PRIMARYCOLOR, globalStyle} from '../theme';
 import {logoSvg} from '../assets/logo';
+import {userLogin} from '../api/userApi';
 
 export const LoginScreen = (/** @type {any} */ {navigation}) => {
     // const dispatch = useDispatch();
-    const [emailOrUsername, setEmailOrUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
-    // const handleOnPressLogin = async () => {
-    //     try {
-    //     setIsLoading(true);
-    //     const loginResultSucceeded = await dispatch(signin({emailOrUsername, password })).unwrap();
-    //     await Keychain.setGenericPassword('jwtToken', loginResultSucceeded.jwtToken);
-    //     navigation.navigate('MainMenuScreen');
-    //     } catch (error) {
-    //     isApiValidationErrorResponse(error) ? Alert.alert('Error ', error.message) : Alert.alert('Error');
-    //     } finally {
-    //     setIsLoading(false);
-    //     }
-    // };
+    const handleLogin = () => {
+        userLogin({
+            email: email.toLowerCase(),
+            password: password
+        }).then((res) => {
+            if (res.status === 200) {
+                AsyncStorage.setItem('AccessToken', res.data.stsTokenManager.accessToken)
+                navigation.navigate('HomeScreen');
+            }
+        }).catch(error => {
+            console.log(error);
+        });
+    }
 
     return (
         <SafeAreaView style={globalStyle.container}>
@@ -39,9 +42,9 @@ export const LoginScreen = (/** @type {any} */ {navigation}) => {
 
             <View style={globalStyle.section}>
             <InputField
-                placeholder={'Email address or username'}
-                value={emailOrUsername}
-                action={text => setEmailOrUsername(text)}
+                placeholder={'Email address'}
+                value={email}
+                action={text => setEmail(text)}
             />
             <InputField
                 placeholder={'Password'}
@@ -56,8 +59,8 @@ export const LoginScreen = (/** @type {any} */ {navigation}) => {
                 <Text>logging in ....</Text>
             ) : (
                 <Button onPress={() => {
-                    console.log('loggedIn')
-                    setIsLoading(true)
+                    handleLogin();
+                    setIsLoading(true);
                 }}
                     title={'Login'} />
             )}

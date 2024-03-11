@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
-import {MainMenuScreen} from './screens/MainMenuScreen';
+import {HomeScreen} from './screens/HomeScreen';
 import {WelcomeScreen} from './screens/WelcomeScreen';
 import {AgbScreen} from './screens/AgbScreen';
 import {LoginScreen} from './screens/LoginScreen';
@@ -59,9 +59,9 @@ const StackNav = () => {
                 screenOptions={Header}
             >
                 <Stack.Screen
-                name='MainMenuScreen'
-                component={MainMenuScreen}
-                options={{ title: 'Dashboard' }}
+                    name='HomeScreen'
+                    component={HomeScreen}
+                    options={{title: 'Dashboard'}}
                 />
             </Stack.Group>
         </Stack.Navigator>
