@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {InputField} from '../components/InputField';
 import {Button} from '../components/Button';
-import {PRIMARYCOLOR, globalStyle} from '../theme';
+import {BLACKCOLOR, PRIMARYCOLOR, globalStyle} from '../theme';
 import {logoSvg} from '../assets/logo';
 import {userLogin} from '../api/userApi';
 
@@ -32,46 +32,46 @@ export const LoginScreen = (/** @type {any} */ {navigation}) => {
 
     return (
         <SafeAreaView style={globalStyle.container}>
-        <View style={globalStyle.mainContent}>
-            <SvgXml xml={logoSvg} width={200} />
+            <View style={globalStyle.mainContent}>
+                <SvgXml xml={logoSvg} width={200} />
 
-            <Text style={globalStyle.heading1}>Welcome back!</Text>
+                <Text style={globalStyle.heading1}>Welcome back!</Text>
 
-            <View style={styles.intro}>
+                <View style={styles.intro}>
+                </View>
+
+                <View style={globalStyle.section}>
+                <InputField
+                    placeholder={'Email address'}
+                    value={email}
+                    action={text => setEmail(text)}
+                />
+                <InputField
+                    placeholder={'Password'}
+                    value={password}
+                    action={text => setPassword(text)}
+                    isPassword
+                />
+                </View>
+
+                <View style={styles.buttonSection}>
+                {isLoading ? (
+                    <Text>logging in ....</Text>
+                ) : (
+                    <Button onPress={() => {
+                        handleLogin();
+                        setIsLoading(true);
+                    }}
+                        title={'Login'} />
+                )}
+                </View>
+
+                <Text style={styles.text}> Don't have an account?
+                    <Pressable onPress={() => navigation.navigate('LoginScreen')}>
+                        <Text style={styles.inlineLink}> Sign up</Text>
+                    </Pressable>
+                </Text>
             </View>
-
-            <View style={globalStyle.section}>
-            <InputField
-                placeholder={'Email address'}
-                value={email}
-                action={text => setEmail(text)}
-            />
-            <InputField
-                placeholder={'Password'}
-                value={password}
-                action={text => setPassword(text)}
-                isPassword
-            />
-            </View>
-
-            <View style={styles.buttonSection}>
-            {isLoading ? (
-                <Text>logging in ....</Text>
-            ) : (
-                <Button onPress={() => {
-                    handleLogin();
-                    setIsLoading(true);
-                }}
-                    title={'Login'} />
-            )}
-            </View>
-
-            <Text style={styles.text}> Don't have an account?
-                <Pressable onPress={() => navigation.navigate('LoginScreen')}>
-                    <Text style={styles.inlineLink}> Sign up</Text>
-                </Pressable>
-            </Text>
-        </View>
         </SafeAreaView>
     );
 };
@@ -102,5 +102,6 @@ const styles = EStyleSheet.create({
     text: {
         marginTop: '20rem',
         fontSize: '15rem',
+        color: BLACKCOLOR,
     }
 });

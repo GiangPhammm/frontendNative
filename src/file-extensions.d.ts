@@ -1,4 +1,5 @@
 declare module '*.svg';
+declare module '*.jpg';
 declare module '*.ts';
 declare module '*.ico';
 declare module '*.png';
