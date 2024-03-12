@@ -1,7 +1,7 @@
 import {ApiManager} from './apiManager';
 
 /** @param {object} data */ 
-export const userLogin = async (data) => {
+export const loginWithEmailAndPassword = async (data) => {
     try {
         const response = await ApiManager('/login', {
             method: 'POST',
@@ -17,7 +17,7 @@ export const userLogin = async (data) => {
     }
 }
 
-export const userLogout = async () => {
+export const logout = async () => {
     try {
         const response = await ApiManager('/logout', {
             method: 'POST',

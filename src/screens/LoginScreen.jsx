@@ -8,7 +8,7 @@ import {InputField} from '../components/InputField';
 import {Button} from '../components/Button';
 import {BLACKCOLOR, PRIMARYCOLOR, globalStyle} from '../theme';
 import {logoSvg} from '../assets/logo';
-import {userLogin} from '../api/userApi';
+import {loginWithEmailAndPassword} from '../api/userApi';
 
 export const LoginScreen = (/** @type {any} */ {navigation}) => {
     // const dispatch = useDispatch();
@@ -17,7 +17,7 @@ export const LoginScreen = (/** @type {any} */ {navigation}) => {
     const [isLoading, setIsLoading] = useState(false);
 
     const handleLogin = () => {
-        userLogin({
+        loginWithEmailAndPassword({
             email: email.toLowerCase(),
             password: password
         }).then(async (res) => {

@@ -29,6 +29,9 @@
     ],
     "rules": {
         "indent": ["error", 4],
+        "no-restricted-globals": ["error", "name", "length"],
+        "prefer-arrow-callback": "error",
+        "quotes": ["error", "single", {"allowTemplateLiterals": true}],
         "no-prototype-builtins": 0,
         "node/no-sync": "off",
         "import/no-mutable-exports": 0,
