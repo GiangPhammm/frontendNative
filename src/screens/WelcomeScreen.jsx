@@ -14,16 +14,16 @@ import {logoSvg} from '../assets/logo';
 import {BLACKCOLOR} from '../theme';
 
 export const WelcomeScreen = (/** @type {any} */ {navigation}) => {
-    const handleToken = async () => {
-        const dataToken = await AsyncStorage.getItem('AccessToken');
-        if (dataToken) {
+    const fetchUserToken = async () => {
+        const token = await AsyncStorage.getItem('AccessToken');
+        if (token) {
             navigation.replace('HomeScreen');
         }
     }
 
     useEffect(() => {
         SplashScreen.hide();
-        handleToken();
+        fetchUserToken();
     })
 
     return (
