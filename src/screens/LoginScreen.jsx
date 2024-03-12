@@ -22,7 +22,7 @@ export const LoginScreen = (/** @type {any} */ {navigation}) => {
             password: password
         }).then(async (res) => {
             if (res.status === 200) {
-                await AsyncStorage.setItem('AccessToken', res.data.stsTokenManager.accessToken)
+                await AsyncStorage.setItem('AccessToken', res.data.stsTokenManager.accessToken);
                 navigation.navigate('HomeScreen');
             }
         }).catch(error => {

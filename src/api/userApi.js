@@ -31,3 +31,20 @@ export const logout = async () => {
         return error.message;
     }
 }
+
+/** @param {object} data */ 
+export const signupWithEmailAndPassword = async (data) => {
+    try {
+        const response = await ApiManager('/signup', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            data: data,
+        });
+        return response;
+    } catch (error) {
+        // @ts-ignore
+        return error.message;
+    }
+}
