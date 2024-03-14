@@ -6,11 +6,15 @@ import {PRIMARYCOLOR, WHITECOLOR} from '../theme'
 
 /** @param {Props} props */
 export const Button = (props) => {
-  const {onPress, title} = props;
+  const {
+    onPress,
+    title,
+    style
+  } = props;
 
   return (
     <Pressable
-      style={styles.primaryBtn}
+      style={[styles.primaryBtn, style]}
       onPress={onPress}
     >
       <Text style={styles.text}>
@@ -41,4 +45,5 @@ const styles = EStyleSheet.create({
  * @typedef {object} Props
  * @prop {(event: import('react-native').GestureResponderEvent) => void} onPress
  * @prop {string} title
+ * @prop {Record<string, string>} [style]
  */

@@ -10,7 +10,8 @@ import {BLACKCOLOR, PRIMARYCOLOR, globalStyle} from '../theme';
 import {logoSvg} from '../assets/logo';
 import {loginWithEmailAndPassword} from '../api/userApi';
 
-export const LoginScreen = (/** @type {any} */ {navigation}) => {
+/** @param {any} navigation */ 
+export const LoginScreen = ({navigation}) => {
     // const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

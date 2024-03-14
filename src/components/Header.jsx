@@ -1,11 +1,11 @@
 import {IconButton} from 'react-native-paper';
-import {Platform, View} from 'react-native';
+import {Platform} from 'react-native';
 import {useNavigation, DrawerActions} from '@react-navigation/native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 import {PRIMARYCOLOR, WHITECOLOR} from '../theme';
 
-export const Header = (/** @type {any} */ {navigation}) => {
+export const Header = () => {
   const drawerNavigation = useNavigation();
 
   return ({
@@ -24,38 +24,6 @@ export const Header = (/** @type {any} */ {navigation}) => {
           drawerNavigation.dispatch(DrawerActions.openDrawer())
         }}
       />
-    ),
-    headerRight: () => (
-      <View style={styles.headerRightSection}>
-        <IconButton
-          style={styles.headerIcon}
-          icon='bell-outline'
-          iconColor={WHITECOLOR}
-          size={20}
-          onPress={() => console.log('Pressed')}
-        />
-        <IconButton
-          style={styles.headerIcon}
-          icon='cog-outline'
-          iconColor={WHITECOLOR}
-          size={20}
-          onPress={() => console.log('Pressed')}
-        />
-        <IconButton
-          style={styles.headerIcon}
-          icon='message-outline'
-          iconColor={WHITECOLOR}
-          size={20}
-          onPress={() => console.log('Pressed')}
-        />
-        <IconButton
-          style={styles.headerIcon}
-          icon='account-outline'
-          iconColor={WHITECOLOR}
-          size={20}
-          onPress={() => navigation.navigate('ProfileScreen')}
-        />
-      </View>
     ),
   })
 }
