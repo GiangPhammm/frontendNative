@@ -61,7 +61,7 @@ const StackNav = () => {
                 <Stack.Screen
                     name='HomeScreen'
                     component={HomeScreen}
-                    options={{title: 'Dashboard'}}
+                    options={{title: ''}}
                 />
             </Stack.Group>
         </Stack.Navigator>

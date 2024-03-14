@@ -1,11 +1,13 @@
 import {DrawerItem} from '@react-navigation/drawer';
 import {Icon} from 'react-native-paper';
-import {Image, View, SafeAreaView} from 'react-native';
+import {Image, View, SafeAreaView, Text} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {SvgXml} from 'react-native-svg';
 
 import {BLACKCOLOR} from '../theme';
 import {logout} from '../api/userApi';
+import {logoSvg} from '../assets/logo';
 
 const drawerList = [
   {
@@ -45,10 +47,21 @@ export const DrawerContent = ({navigation}) => {
 
   return (
         <SafeAreaView style={styles.container}>
-            <Image
-                style={styles.profileImage}
-                source={require('../assets/default-avatar.png')}
-            />
+            <View style={styles.logo}>
+                <SvgXml
+                    xml={logoSvg}
+                    width={130}
+                    height={50}      
+                />
+            </View>
+
+            <View style={styles.profile}>
+                <Image
+                    style={styles.profileImage}
+                    source={require('../assets/default-avatar.png')}
+                />
+                <Text style={styles.profileName}>Username</Text>
+            </View>
             <View style={styles.drawerList}>
                 {drawerList.map((item, index) => {
                     return (
@@ -56,14 +69,14 @@ export const DrawerContent = ({navigation}) => {
                             labelStyle={{
                                 fontSize: 18,
                                 color: BLACKCOLOR,
-                                marginLeft: -15
+                                marginLeft: -20
                             }}
                             key={index}
                             icon={() => 
                                 <Icon
                                     source={item.icon}
                                     color={BLACKCOLOR}
-                                    size={30}
+                                    size={25}
                                 />
                             }
                             label={item.label}
@@ -81,13 +94,13 @@ export const DrawerContent = ({navigation}) => {
                     labelStyle={{
                         fontSize: 18,
                         color: BLACKCOLOR,
-                        marginLeft: -15,
+                        marginLeft: -20,
                     }}
                     icon={() => 
                         <Icon
                             source='logout'
                             color={BLACKCOLOR}
-                            size={30}
+                            size={25}
                         />
                     }
                     label='Logout'
@@ -104,18 +117,30 @@ const styles = EStyleSheet.create({
         flexDirection: 'column',
         width: '100%',
         height: '100%',
-        minHeight: '100vh',
         marginHorizontal: '10rem',
+    },
+
+    logo: {
+        alignItems: 'center',
+    },
+
+    profile: {
+        display: 'flex',
+        flexDirection: 'row',
+        marginLeft: '20rem',
         marginTop: '30rem',
-        marginBottom: '10rem',
-        justifyContent: 'space-between',
+        alignItems: 'center', 
     },
 
     profileImage: {
         width: '50rem',
         height: '50rem',
-        marginLeft: '22rem',
-        marginTop: '30rem',
+    },
+
+    profileName: {
+        fontSize: '18rem',
+        fontWeight: '700',
+        marginLeft: '10rem',
     },
 
     drawerList: {
