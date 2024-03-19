@@ -1,8 +1,7 @@
 import {Text} from 'react-native-paper';
 import {Pressable} from 'react-native';
-import EStyleSheet from 'react-native-extended-stylesheet';
 
-import {PRIMARYCOLOR, WHITECOLOR} from '../theme'
+import {styles} from './styles';
 
 /** @param {Props} props */
 export const Button = (props) => {
@@ -23,23 +22,6 @@ export const Button = (props) => {
     </Pressable>
   );
 }
-
-const styles = EStyleSheet.create({
-  primaryBtn: {
-    minWidth: '150rem',
-    height: '40rem',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: '20rem',
-    backgroundColor: PRIMARYCOLOR,
-  },
-
-  text: {
-    fontSize: '18rem',
-    fontWeight: '700',
-    color: WHITECOLOR,
-  },
-});
 
 /**
  * @typedef {object} Props

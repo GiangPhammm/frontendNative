@@ -4,8 +4,8 @@ import {SvgXml} from 'react-native-svg';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import {InputField} from '../components/InputField';
-import {Button} from '../components/Button';
+import {InputField} from '../components/input-field';
+import {Button} from '../components/button';
 import {BLACKCOLOR, PRIMARYCOLOR, globalStyle} from '../theme';
 import {logoSvg} from '../assets/logo';
 import {loginWithEmailAndPassword} from '../api/userApi';

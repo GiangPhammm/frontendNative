@@ -1,7 +1,8 @@
 // @ts-ignore
 import {GestureResponderEvent, Pressable, Text, View} from 'react-native';
 import {Icon} from 'react-native-paper';
-import EStyleSheet from 'react-native-extended-stylesheet';
+
+import {styles} from './styles';
 
 /** @param {Props} props */
 export const CheckBox = (props) => {
@@ -26,22 +27,6 @@ export const CheckBox = (props) => {
 		</View> 
 	); 
 }; 
-
-const styles = EStyleSheet.create({
-	container: {
-		justifyContent: 'flex-start', 
-		alignItems: 'flex-start', 
-		flexDirection: 'row',
-	},
-
-	title: {
-		marginLeft: '3rem',
-		bottom: '1rem',
-		fontSize: '13rem',
-		color: 'rgba(0, 0, 0, 0.56)', 
-		fontWeight: '400',
-	}, 
-}); 
 
 /**
  * @typedef {object} Props
