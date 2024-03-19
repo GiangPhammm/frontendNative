@@ -1,17 +1,15 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import {Text, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-export const HomeScreen = () => {
+export const MapScreen = () => {
     return (
         <View style={styles.container}>
             <Text>
-                Home
+                Map
             </Text>
         </View>
     );
 };
-
 
 const styles = EStyleSheet.create({
     
