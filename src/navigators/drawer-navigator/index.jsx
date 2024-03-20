@@ -19,9 +19,9 @@ export const DrawerContent = ({navigation}) => {
             const res = await logout();
             if (res.status === 200) {
                 await AsyncStorage.removeItem('AccessToken');
+                navigation.navigate('WelcomeScreen');
             }
         }
-        navigation.navigate('WelcomeScreen');
     };
 
     return (

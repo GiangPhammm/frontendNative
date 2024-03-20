@@ -37,7 +37,7 @@ export const globalStyle = EStyleSheet.create({
     },
 
     heading1: {
-        fontSize: '30rem',
+        fontSize: '25rem',
         fontWeight: '700',
         lineHeight: '51rem',
         paddingVertical: '8rem',

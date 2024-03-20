@@ -8,13 +8,14 @@ export const styles = EStyleSheet.create({
       height: '40rem',
       alignItems: 'center',
       justifyContent: 'center',
+      paddingHorizontal: '20rem',
       borderRadius: '20rem',
       backgroundColor: PRIMARYCOLOR,
     },
   
     text: {
       fontSize: '18rem',
-      fontWeight: '700',
+      fontWeight: '800',
       color: WHITECOLOR,
     },
 });

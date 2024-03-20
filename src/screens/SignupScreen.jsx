@@ -45,7 +45,7 @@ export const SignupScreen = (/** @type {any} */ {navigation}) => {
         <ScrollView showsVerticalScrollIndicator={false}>
             <View style={globalStyle.mainContent}>
             <SvgXml xml={logoSvg} width={200} />
-            <Text style={globalStyle.heading1}>Join Free</Text>
+            <Text style={globalStyle.heading1}>Create an account</Text>
 
             <View style={globalStyle.section}>
                 <InputField
