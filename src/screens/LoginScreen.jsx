@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
-import {View, Text, SafeAreaView, Pressable} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 import {SvgXml} from 'react-native-svg';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {SocialIcon} from 'react-native-elements';
 
 import {InputField} from '../components/input-field';
 import {Button} from '../components/button';
-import {BLACKCOLOR, PRIMARYCOLOR, globalStyle} from '../theme';
+import {globalStyle} from '../theme';
 import {logoSvg} from '../assets/logo';
 import {loginWithEmailAndPassword} from '../api/userApi';
 
@@ -38,21 +39,39 @@ export const LoginScreen = ({navigation}) => {
 
                 <Text style={globalStyle.heading1}>Welcome back!</Text>
 
-                <View style={styles.intro}>
+                <View style={styles.connect}>
+                    <SocialIcon
+                        type='google'
+                    />
+                    <SocialIcon
+                        type='facebook'
+                    />
+                    <SocialIcon
+                        type='twitter'
+                    />
                 </View>
 
+                <View style={styles.separator}>
+                    <View style={styles.separator_line} />
+                    <View>
+                        <Text style={styles.separator_text}>or</Text>
+                    </View>
+                    <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
+                </View>
+
+
                 <View style={globalStyle.section}>
-                <InputField
-                    placeholder={'Email address'}
-                    value={email}
-                    action={text => setEmail(text)}
-                />
-                <InputField
-                    placeholder={'Password'}
-                    value={password}
-                    action={text => setPassword(text)}
-                    isPassword
-                />
+                    <InputField
+                        placeholder={'Email address'}
+                        value={email}
+                        action={text => setEmail(text)}
+                    />
+                    <InputField
+                        placeholder={'Password'}
+                        value={password}
+                        action={text => setPassword(text)}
+                        isPassword
+                    />
                 </View>
 
                 <View style={styles.buttonSection}>
@@ -67,11 +86,24 @@ export const LoginScreen = ({navigation}) => {
                 )}
                 </View>
 
-                <Text style={styles.text}> Don't have an account?
-                    <Pressable onPress={() => navigation.navigate('LoginScreen')}>
-                        <Text style={styles.inlineLink}> Sign up</Text>
-                    </Pressable>
-                </Text>
+                <View style={globalStyle.authHelper}>
+                    <Text style={globalStyle.authHelper_text}>
+                        <Text
+                            style={globalStyle.inlineLink}
+                            onPress={() => navigation.navigate('WelcomeScreen')}
+                        > Forgot password?
+                        </Text>
+                    </Text>
+
+                    <Text style={globalStyle.authHelper_text}>
+                        Don't have an account?
+                        <Text
+                            style={globalStyle.inlineLink}
+                            onPress={() => navigation.navigate('WelcomeScreen')}
+                        > Sign up
+                        </Text>
+                    </Text>
+                </View>
             </View>
         </SafeAreaView>
     );
@@ -79,6 +111,30 @@ export const LoginScreen = ({navigation}) => {
 
 const styles = EStyleSheet.create({
     intro: {
+        marginTop: '10rem',
+    },
+
+    separator: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: '20rem',
+        marginHorizontal: '60rem'
+    },
+
+    separator_line: {
+        flex: 1,
+        height: 1,
+        backgroundColor: 'black',
+    },
+
+    separator_text: {
+        width: '40rem',
+        textAlign: 'center',
+        fontSize: '16rem',
+    },
+
+    connect: {
+        flexDirection: 'row',
         marginTop: '10rem',
     },
 
@@ -93,16 +149,4 @@ const styles = EStyleSheet.create({
     checkbox: {
         width: 2,
     },
-    
-    inlineLink: {
-        top: '6rem',
-        fontSize: '15rem',
-        color: PRIMARYCOLOR
-    },
-
-    text: {
-        marginTop: '20rem',
-        fontSize: '15rem',
-        color: BLACKCOLOR,
-    }
 });

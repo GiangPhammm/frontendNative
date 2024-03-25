@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {View, Text, Pressable, SafeAreaView, ScrollView} from 'react-native';
+import {View, Text, SafeAreaView, ScrollView} from 'react-native';
 import {SvgXml} from 'react-native-svg';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -8,7 +8,7 @@ import {InputField} from '../components/input-field';
 import {Button} from '../components/button';
 import {CheckBox} from '../components/checkbox';
 import {
-    SECONDARY_COLOR2,
+    SECONDARY_COLOR3,
     BLACKCOLOR,
     globalStyle} from '../theme';
 import {logoSvg} from '../assets/logo';
@@ -42,69 +42,72 @@ export const SignupScreen = (/** @type {any} */ {navigation}) => {
 
     return (
         <SafeAreaView style={globalStyle.container}>
-        <ScrollView showsVerticalScrollIndicator={false}>
-            <View style={globalStyle.mainContent}>
-            <SvgXml xml={logoSvg} width={200} />
-            <Text style={globalStyle.heading1}>Create an account</Text>
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <View style={globalStyle.mainContent}>
+                    <SvgXml xml={logoSvg} width={200} />
+                    <Text style={globalStyle.heading1}>Hi there!</Text>
 
-            <View style={globalStyle.section}>
-                <InputField
-                    placeholder={'Email'}
-                    value={email}
-                    action={text => setEmail(text)}
-                />
-                <InputField
-                    placeholder={'Username'}
-                    value={username}
-                    action={text => setUsername(text)}
-                />
-                <InputField
-                    placeholder={'Password'}
-                    value={password}
-                    action={text => setPassword(text)}
-                    isPassword
-                />
-                <InputField
-                    placeholder={'Confirm Password'}
-                    value={passwordConfirmation}
-                    action={text => setPasswordConfirmation(text)}
-                    isPassword
-                />
+                    <View style={globalStyle.section}>
+                        <InputField
+                            placeholder={'Email'}
+                            value={email}
+                            action={text => setEmail(text)}
+                        />
+                        <InputField
+                            placeholder={'Username'}
+                            value={username}
+                            action={text => setUsername(text)}
+                        />
+                        <InputField
+                            placeholder={'Password'}
+                            value={password}
+                            action={text => setPassword(text)}
+                            isPassword
+                        />
+                        <InputField
+                            placeholder={'Confirm Password'}
+                            value={passwordConfirmation}
+                            action={text => setPasswordConfirmation(text)}
+                            isPassword
+                        />
+                    </View>
 
-                <Text>
-                <CheckBox
-                    isChecked={checked}
-                    title={'By joining you agree to our'}
-                    action={() => setChecked(!checked)}
-                />
-                <Pressable
-                    onPress={() => navigation.navigate('AgbScreen')}
-                >
-                    <Text style={styles.agbLink}>
-                    {' Term & Condition'}
-                    </Text>
-                </Pressable>
-                </Text>
-            </View>
+                    <View style={styles.agb}>
+                        <CheckBox
+                            isChecked={checked}
+                            title={'By joining you agree to our'}
+                            action={() => setChecked(!checked)}
+                        />
+                        <Text
+                            style={styles.agbLink}
+                            onPress={() => navigation.navigate('AgbScreen')}
+                        >
+                            {' Term & Condition'}
+                        </Text>
+                    </View>
 
-            <View style={styles.buttonSection}>
-                {isLoading ? (
-                <Text>signing up ...</Text>
-                ) : (
-                <Button onPress={() => {
-                    setIsLoading(true);
-                    handleSignup();
-                }} title={'Register'} />
-                )}
-                <Text style={styles.text}>
-                or
-                <Pressable onPress={() => navigation.navigate('LoginScreen')}>
-                    <Text style={styles.inlineLink}> Login</Text>
-                </Pressable>
-                </Text>
-            </View>
-            </View>
-        </ScrollView>
+                    <View style={styles.buttonSection}>
+                        {isLoading ? 
+                            <Text>signing up ...</Text>
+                            :
+                            <Button onPress={() => {
+                                setIsLoading(true);
+                                handleSignup();
+                            }} title={'Register'} />
+                        }
+                    </View>
+
+                    <View style={globalStyle.authHelper}>
+                        <Text style={globalStyle.authHelper_text}>
+                            Already have an account?
+                            <Text
+                                onPress={() => navigation.navigate('LoginScreen')}
+                                style={globalStyle.inlineLink}> Sign in
+                            </Text>
+                        </Text>
+                    </View>
+                </View>
+            </ScrollView>
         </SafeAreaView>
     );
 };
@@ -118,19 +121,13 @@ const styles = EStyleSheet.create({
         width: '2rem',
     },
 
-    text: {
-        fontSize: '18rem',
-        fontWeight: '400',
-        lineHeight: '22.4rem',
-        textAlign: 'center',
-        marginTop: '15rem',
-        color: BLACKCOLOR
+    agb: {
+        flexDirection: 'row',
     },
 
     agbLink: {
-        bottom: '1rem',
         fontSize: '13rem', 
-        color: SECONDARY_COLOR2,
+        color: SECONDARY_COLOR3,
         fontWeight: '700',
     },
 

@@ -1,17 +1,12 @@
 import React, {useEffect} from 'react';
-import {
-  View,
-  TouchableOpacity,
-  ImageBackground
-} from 'react-native';
-import {Text} from 'react-native-paper';
-import {SvgXml} from 'react-native-svg';
+import {View, ImageBackground, Text} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import SplashScreen from 'react-native-splash-screen';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import {SocialIcon} from 'react-native-elements';
 
-import {logoSvg} from '../assets/logo';
-import {BLACKCOLOR} from '../theme';
+import {BLACKCOLOR, globalStyle} from '../theme';
+import {Button} from '../components/button';
 
 export const WelcomeScreen = (/** @type {any} */ {navigation}) => {
     const fetchUserToken = async () => {
@@ -33,29 +28,47 @@ export const WelcomeScreen = (/** @type {any} */ {navigation}) => {
         >
             <View style={styles.container}>
                 <View style={styles.section}>
-                    <View style={styles.logo}>
-                        <SvgXml xml={logoSvg} width="100%" height="100%" />
-                    </View>
-                    <View style={styles.textContainer}>
-                        <Text style={styles.welcomeText}>Care of your</Text>
-                        <Text style={styles.welcomeText}>little pets</Text>
-                    </View>
-                </View>
-                <View style={styles.section}>
                     <View style={styles.buttonContainer}>
-                        <TouchableOpacity
-                            style={styles.button}
-                            onPress={() => navigation.navigate('LoginScreen')}
-                        >
-                            <Text style={styles.buttonText}>Login</Text>
-                        </TouchableOpacity>
-                        <Text style={styles.separator}> | </Text>
-                        <TouchableOpacity
-                            style={styles.button}
+                        <Button 
                             onPress={() => navigation.navigate('SignupScreen')}
-                        >
-                            <Text style={styles.buttonText}>Register</Text>
-                        </TouchableOpacity>
+                            title={'Create an account'}
+                        />
+                    </View>
+
+                    <View style={styles.separator}>
+                        <View style={styles.separator_line} />
+                        <View>
+                            <Text style={styles.separator_text}>or connect with</Text>
+                        </View>
+                        <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
+                    </View>
+
+                    <View style={styles.connect}>
+                        <SocialIcon
+                            type='google'
+                        />
+                        <SocialIcon
+                            type='facebook'
+                        />
+                        <SocialIcon
+                            type='twitter'
+                        />
+                    </View>
+
+                    <View style={globalStyle.authHelper}>
+                        <Text style={globalStyle.authHelper_text}>By joining you agree to our
+                            <Text
+                                onPress={() => navigation.navigate('AgbScreen')}
+                                style={globalStyle.inlineLink}> Terms & Conditions
+                            </Text>
+                        </Text>
+                        <Text style={globalStyle.authHelper_text}>
+                            Already have an account?
+                            <Text
+                                onPress={() => navigation.navigate('LoginScreen')}
+                                style={globalStyle.inlineLink}> Sign in
+                            </Text>
+                        </Text>
                     </View>
                 </View>
             </View>
@@ -72,30 +85,21 @@ const styles = EStyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        marginTop: '30%'
+        top: '0%',
+        margin: '40rem'
     },
 
     section: {
         position: 'relative',
         alignItems: 'center',
         width: '100%',
+        height: '40%',
+        top: '70%'
     },
 
     logo: {
         width: '50%',
         height: '40%',
-    },
-
-    textContainer: {
-        width: '100%',
-        color: BLACKCOLOR
-    },
-
-    welcomeText: {
-        fontSize: '40rem',
-        textAlign: 'center',
-        fontWeight: '700',
-        color: BLACKCOLOR,
     },
 
     buttonContainer: {
@@ -115,7 +119,25 @@ const styles = EStyleSheet.create({
     },
 
     separator: {
-        marginHorizontal: '5rem',
-        color: BLACKCOLOR,
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: '20rem',
+    },
+
+    separator_line: {
+        flex: 1,
+        height: 1,
+        backgroundColor: 'black',
+    },
+
+    separator_text: {
+        width: '130rem',
+        textAlign: 'center',
+        fontSize: '15rem',
+    },
+
+    connect: {
+        flexDirection: 'row',
+        marginTop: '10rem',
     },
 });
