@@ -1,10 +1,10 @@
 import 'react-native-gesture-handler';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {WelcomeScreen} from '../../screens/WelcomeScreen';
-import {AgbScreen} from '../../screens/AgbScreen';
-import {LoginScreen} from '../../screens/LoginScreen';
-import {SignupScreen} from '../../screens/SignupScreen';
+import {WelcomeScreen} from '../../screens/welcome';
+import {AgbScreen} from '../../screens/agb';
+import {LoginScreen} from '../../screens/login/login';
+import {SignupScreen} from '../../screens/signup';
 import {PRIMARYCOLOR, MAIN_BG_COLOR} from '../../theme';
 import {Header} from '../header';
 

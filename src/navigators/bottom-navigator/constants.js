@@ -1,7 +1,7 @@
-import {HomeScreen} from '../../screens/HomeScreen';
-import {MapScreen} from '../../screens/MapScreen';
-import {ConnectScreen} from '../../screens/ConnectScreen';
-import {MarketScreen} from '../../screens/MarketScreen';
+import {HomeScreen} from '../../screens/home';
+import {MapScreen} from '../../screens/map';
+import {ConnectScreen} from '../../screens/connect';
+import {MarketScreen} from '../../screens/market';
 
 export const BOTTOM_NAV_ITEMS = [
     {

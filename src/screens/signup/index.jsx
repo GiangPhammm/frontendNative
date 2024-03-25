@@ -1,18 +1,16 @@
 import {useState} from 'react';
 import {View, Text, SafeAreaView, ScrollView} from 'react-native';
 import {SvgXml} from 'react-native-svg';
-import EStyleSheet from 'react-native-extended-stylesheet';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import {InputField} from '../components/input-field';
-import {Button} from '../components/button';
-import {CheckBox} from '../components/checkbox';
-import {
-    SECONDARY_COLOR3,
-    BLACKCOLOR,
-    globalStyle} from '../theme';
-import {logoSvg} from '../assets/logo';
-import {signupWithEmailAndPassword} from '../api/userApi';
+import {InputField} from '../../components/input-field';
+import {Button} from '../../components/button';
+import {CheckBox} from '../../components/checkbox';
+import {globalStyle} from '../../theme';
+import {logoSvg} from '../../assets/logo';
+import {signupWithEmailAndPassword} from '../../api/userApi';
+
+import {styles} from './styles';
 
 export const SignupScreen = (/** @type {any} */ {navigation}) => {
     // const dispatch = useDispatch<AppDispatch>();
@@ -111,29 +109,3 @@ export const SignupScreen = (/** @type {any} */ {navigation}) => {
         </SafeAreaView>
     );
 };
-
-const styles = EStyleSheet.create({
-    buttonSection: {
-        marginTop: '15rem',
-    },
-
-    checkbox: {
-        width: '2rem',
-    },
-
-    agb: {
-        flexDirection: 'row',
-    },
-
-    agbLink: {
-        fontSize: '13rem', 
-        color: SECONDARY_COLOR3,
-        fontWeight: '700',
-    },
-
-    inlineLink: {
-        top: '4rem',
-        fontSize: '18rem',
-        color: BLACKCOLOR
-    },
-});
