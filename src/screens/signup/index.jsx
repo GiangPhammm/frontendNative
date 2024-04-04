@@ -8,7 +8,7 @@ import {Button} from '../../components/button';
 import {CheckBox} from '../../components/checkbox';
 import {globalStyle} from '../../theme';
 import {logoSvg} from '../../assets/logo';
-import {signupWithEmailAndPassword} from '../../api/userApi';
+import {signupWithEmailAndPassword} from '../../api/user-api';
 
 import {styles} from './styles';
 

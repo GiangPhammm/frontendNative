@@ -1,5 +1,5 @@
 {
-  "name": "petallyFrontend",
+  "name": "petally",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -57,5 +57,6 @@
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "scheme": "petally"
 }

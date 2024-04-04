@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {SvgXml} from 'react-native-svg';
 
 import {BLACKCOLOR} from '../../theme';
-import {logout} from '../../api/userApi';
+import {logout} from '../../api/user-api';
 import {logoSvg} from '../../assets/logo';
 
 import {DRAWER_ITEMS} from './constants';
@@ -15,12 +15,14 @@ import {styles} from './styles';
 export const DrawerContent = ({navigation}) => {
     const handleLogout = async () => {
         const token = await AsyncStorage.getItem('AccessToken');
+        console.log(token)
         if (token) {
-            const res = await logout();
-            if (res.status === 200) {
-                await AsyncStorage.removeItem('AccessToken');
-                navigation.navigate('WelcomeScreen');
-            }
+            logout().then(async (res) => {
+                if (res.status === 200) {
+                    await AsyncStorage.removeItem('AccessToken');
+                    navigation.navigate('WelcomeScreen'); // Something off here...
+                }
+            });
         }
     };
 

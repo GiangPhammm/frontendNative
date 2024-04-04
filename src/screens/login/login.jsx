@@ -1,5 +1,9 @@
 import React, {useState} from 'react';
-import {View, Text, SafeAreaView} from 'react-native';
+import {
+    View,
+    Text,
+    SafeAreaView,
+} from 'react-native';
 import {SvgXml} from 'react-native-svg';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {SocialIcon} from 'react-native-elements';
@@ -8,7 +12,10 @@ import {InputField} from '../../components/input-field';
 import {Button} from '../../components/button';
 import {globalStyle} from '../../theme';
 import {logoSvg} from '../../assets/logo';
-import {loginWithEmailAndPassword} from '../../api/userApi';
+import {
+    authenticateWithGoogle,
+    loginWithEmailAndPassword,
+} from '../../api/user-api';
 
 import {styles} from './styles';
 
@@ -28,6 +35,15 @@ export const LoginScreen = ({navigation}) => {
                 await AsyncStorage.setItem('AccessToken', res.data.stsTokenManager.accessToken);
                 navigation.navigate('HomeScreen');
             }
+        })
+    }
+
+    const handleAuthWithGoogle = () => {
+        authenticateWithGoogle().then(async (res) => {
+            if (res.status === 200) {
+                await AsyncStorage.setItem('AccessToken', res.token);
+                navigation.navigate('HomeScreen');
+            }
         }).catch(error => {
             console.log(error);
         });
@@ -43,6 +59,7 @@ export const LoginScreen = ({navigation}) => {
                 <View style={styles.connect}>
                     <SocialIcon
                         type='google'
+                        onPress={() => handleAuthWithGoogle()}
                     />
                     <SocialIcon
                         type='facebook'
