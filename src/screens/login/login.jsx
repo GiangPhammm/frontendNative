@@ -7,6 +7,10 @@ import {
 import {SvgXml} from 'react-native-svg';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {SocialIcon} from 'react-native-elements';
+import * as Google from 'expo-auth-session/providers/google';
+import * as WebBrowser from 'expo-web-browser';
+
+import * as clientIds from '../../../config/client-ids';
 
 import {InputField} from '../../components/input-field';
 import {Button} from '../../components/button';
@@ -37,6 +41,11 @@ export const LoginScreen = ({navigation}) => {
             }
         })
     }
+
+    const [req, res, promptAsync] = Google.useAuthRequest({
+        iosClientId: clientIds.IOS_CLIENT_ID,
+        androidClientId: clientIds.ANDROID_CLIENT_ID,
+    })
 
     const handleAuthWithGoogle = () => {
         authenticateWithGoogle().then(async (res) => {

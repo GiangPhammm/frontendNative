@@ -15,7 +15,6 @@ import {styles} from './styles';
 export const DrawerContent = ({navigation}) => {
     const handleLogout = async () => {
         const token = await AsyncStorage.getItem('AccessToken');
-        console.log(token)
         if (token) {
             logout().then(async (res) => {
                 if (res.status === 200) {
