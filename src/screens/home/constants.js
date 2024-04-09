@@ -1,15 +1,15 @@
 import PetCategory from '../../models/pet-category';
 
-import birdIcon from '../../assets/bird.png';
-import catIcon from '../../assets/cat.png';
-import dogIcon from '../../assets/dog.png';
-import ferretIcon from '../../assets/ferret.png';
-import fishIcon from '../../assets/fish.png';
-import guineaPigIcon from '../../assets/guinea-pig.png';
-import hamsterIcon from '../../assets/hamster.png';
-import rabbitIcon from '../../assets/rabbit.png';
-import reptileIcon from '../../assets/reptile.png';
-import poultryIcon from '../../assets/poultry.png';
+import birdIcon from '../../assets/pet-icons/dog.png';
+import catIcon from '../../assets/pet-icons/cat.png';
+import dogIcon from '../../assets/pet-icons/dog.png';
+import ferretIcon from '../../assets/pet-icons/ferret.png';
+import fishIcon from '../../assets/pet-icons/fish.png';
+import guineaPigIcon from '../../assets/pet-icons/guinea-pig.png';
+import hamsterIcon from '../../assets/pet-icons/hamster.png';
+import rabbitIcon from '../../assets/pet-icons/rabbit.png';
+import reptileIcon from '../../assets/pet-icons/reptile.png';
+import poultryIcon from '../../assets/pet-icons/poultry.png';
 
 
 import * as theme from '../../theme';
@@ -26,4 +26,4 @@ export const PET_CATEGORIES = [
     new PetCategory('c8', 'Rabbit', theme.SECONDARY_COLOR4, rabbitIcon),
     new PetCategory('c9', 'Reptile', theme.SECONDARY_COLOR1, reptileIcon),
     new PetCategory('c10', 'Poultry', theme.SECONDARY_COLOR2, poultryIcon),
-]
+];
