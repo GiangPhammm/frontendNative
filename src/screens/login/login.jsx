@@ -38,6 +38,7 @@ export const LoginScreen = ({navigation}) => {
         })
     }
 
+    // TODO: handle backend here
     const handleAuthWithGoogle = () => {
         authenticateWithGoogle().then(async (res) => {
             if (res.status === 200) {
