@@ -1,12 +1,17 @@
 import React from 'react';
-import {View, Text, FlatList} from 'react-native';
-import EStyleSheet from 'react-native-extended-stylesheet';
-import {PET_CATEGORIES} from './constants';
+import {
+    View,
+    Text,
+    FlatList,
+} from 'react-native';
 
 import {globalStyle} from '../../theme';
 import {GridTile} from '../../components/grid-tile';
 
-// @ts-ignore
+import {PET_CATEGORIES} from './constants';
+import {styles} from './styles';
+
+/** @param {Props} itemData */
 const renderPetCategory = (itemData) => {
     return (
         <GridTile
@@ -35,7 +40,10 @@ export const HomeScreen = () => {
     );
 };
 
-
-const styles = EStyleSheet.create({
-    
-});
+/**
+ * @typedef {object} Props
+ * @prop {object} item
+ * @prop {string} item.name
+ * @prop {string} item.color
+ * @prop {HTMLImageElement} item.icon
+ */

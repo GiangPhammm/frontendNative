@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "node": true
     },
     "extends": [
         "eslint:recommended",
@@ -32,6 +33,7 @@
         "no-restricted-globals": ["error", "name", "length"],
         "prefer-arrow-callback": "error",
         "quotes": ["error", "single", {"allowTemplateLiterals": true}],
+        "max-len": ["error", {"code": 140}],
         "no-prototype-builtins": 0,
         "node/no-sync": "off",
         "import/no-mutable-exports": 0,

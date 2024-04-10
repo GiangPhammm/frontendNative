@@ -3,8 +3,8 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import {BLACKCOLOR, WHITECOLOR} from '../../theme';
 
 export const styles = EStyleSheet.create({
-	container: {
-		flex: 1,
+    container: {
+        flex: 1,
         margin: '16rem',
         height: '150rem',
         borderRadius: '8rem',
@@ -15,7 +15,7 @@ export const styles = EStyleSheet.create({
         shadowOffset: {width: 0, height: 2},
         shadowRadius: 8,
         overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
-	},
+    },
 
     button: {
         flex: 1,
