@@ -26,15 +26,22 @@ export const styles = EStyleSheet.create({
     },
 
     content: {
+        position: 'relative',
         flex: 1,
         padding: '16rem',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         borderRadius: '8rem',
     },
 
+    icon: {
+        width: '100rem',
+        height: '100rem',
+    },
+
     title: {
         fontWeight: '700',
-        fontSize: '15rem'
-    }
+        fontSize: '15rem',
+        marginTop: '8rem'
+    },
 }); 

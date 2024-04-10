@@ -1,5 +1,7 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
 
+import {BLACKCOLOR} from '../../theme';
+
 export const styles = EStyleSheet.create({
     intro: {
         marginTop: '10rem',
@@ -22,6 +24,7 @@ export const styles = EStyleSheet.create({
         width: '40rem',
         textAlign: 'center',
         fontSize: '16rem',
+        color: BLACKCOLOR,
     },
 
     connect: {

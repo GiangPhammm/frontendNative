@@ -12,6 +12,7 @@ const renderPetCategory = (itemData) => {
         <GridTile
             title={itemData.item.name}
             color={itemData.item.color}
+            icon={itemData.item.icon}
         />
     )
 }
@@ -20,7 +21,7 @@ export const HomeScreen = () => {
     return (
         <View style={styles.container}>
             <Text style={globalStyle.heading1}>
-                Choosing a pet
+                Choose a pet
             </Text>
 
             <FlatList

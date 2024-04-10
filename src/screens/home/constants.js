@@ -1,6 +1,6 @@
 import PetCategory from '../../models/pet-category';
 
-import birdIcon from '../../assets/pet-icons/dog.png';
+import birdIcon from '../../assets/pet-icons/bird.png';
 import catIcon from '../../assets/pet-icons/cat.png';
 import dogIcon from '../../assets/pet-icons/dog.png';
 import ferretIcon from '../../assets/pet-icons/ferret.png';

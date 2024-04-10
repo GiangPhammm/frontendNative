@@ -73,6 +73,7 @@ export const globalStyle = EStyleSheet.create({
         marginTop: '5rem',
         fontSize: '15rem',
         textAlign: 'center',
+        color: BLACKCOLOR,
     },
 
 });

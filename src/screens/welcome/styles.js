@@ -59,6 +59,7 @@ export const styles = EStyleSheet.create({
         width: '130rem',
         textAlign: 'center',
         fontSize: '15rem',
+        color: BLACKCOLOR,
     },
 
     connect: {

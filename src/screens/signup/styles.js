@@ -16,6 +16,7 @@ export const styles = EStyleSheet.create({
 
     agb: {
         flexDirection: 'row',
+        color: BLACKCOLOR,
     },
 
     agbLink: {
