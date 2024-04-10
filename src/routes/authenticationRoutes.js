@@ -1,4 +1,4 @@
-import {LoginScreen} from '../screens/login/login';
+import {LoginScreen} from '../screens/login';
 
 export const authenticationRoutes = {
     loginScreen: {

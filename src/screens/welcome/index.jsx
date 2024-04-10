@@ -1,5 +1,9 @@
 import React, {useEffect} from 'react';
-import {View, ImageBackground, Text} from 'react-native';
+import {
+    View,
+    ImageBackground,
+    Text,
+} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import SplashScreen from 'react-native-splash-screen';
 import {SocialIcon} from 'react-native-elements';
@@ -57,10 +61,13 @@ export const WelcomeScreen = (/** @type {any} */ {navigation}) => {
                     </View>
 
                     <View style={globalStyle.authHelper}>
-                        <Text style={globalStyle.authHelper_text}>By joining you agree to our
+                        <Text style={globalStyle.authHelper_text}>
+                            By joining you agree to our
                             <Text
                                 onPress={() => navigation.navigate('AgbScreen')}
-                                style={globalStyle.inlineLink}> Terms & Conditions
+                                style={globalStyle.inlineLink}
+                            >
+                                Terms & Conditions
                             </Text>
                         </Text>
                         <Text style={globalStyle.authHelper_text}>

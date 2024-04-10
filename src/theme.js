@@ -59,7 +59,8 @@ export const globalStyle = EStyleSheet.create({
 
     inlineLink: {
         fontSize: '15rem',
-        color: SECONDARY_COLOR3
+        color: SECONDARY_COLOR3,
+        fontWeight: '700',
     },
 
     authHelper: {

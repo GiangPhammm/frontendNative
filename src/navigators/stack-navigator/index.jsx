@@ -3,7 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {WelcomeScreen} from '../../screens/welcome';
 import {AgbScreen} from '../../screens/agb';
-import {LoginScreen} from '../../screens/login/login';
+import {LoginScreen} from '../../screens/login';
 import {SignupScreen} from '../../screens/signup';
 import {PRIMARYCOLOR, MAIN_BG_COLOR} from '../../theme';
 import {Header} from '../header';

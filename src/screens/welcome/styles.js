@@ -19,7 +19,7 @@ export const styles = EStyleSheet.create({
         alignItems: 'center',
         width: '100%',
         height: '40%',
-        top: '70%'
+        top: '65%'
     },
 
     logo: {

@@ -1,5 +1,11 @@
 import {useState} from 'react';
-import {View, Text, SafeAreaView, ScrollView} from 'react-native';
+import {
+    View,
+    Text,
+    SafeAreaView,
+    ScrollView,
+    KeyboardAvoidingView,
+} from 'react-native';
 import {SvgXml} from 'react-native-svg';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -40,72 +46,74 @@ export const SignupScreen = (/** @type {any} */ {navigation}) => {
 
     return (
         <SafeAreaView style={globalStyle.container}>
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <View style={globalStyle.mainContent}>
-                    <SvgXml xml={logoSvg} width={200} />
-                    <Text style={globalStyle.heading1}>Hi there!</Text>
+            <KeyboardAvoidingView behavior='position'>
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    <View style={globalStyle.mainContent}>
+                        <SvgXml xml={logoSvg} width={200} />
+                        <Text style={globalStyle.heading1}>Hi there!</Text>
 
-                    <View style={globalStyle.section}>
-                        <InputField
-                            placeholder={'Email'}
-                            value={email}
-                            action={text => setEmail(text)}
-                        />
-                        <InputField
-                            placeholder={'Username'}
-                            value={username}
-                            action={text => setUsername(text)}
-                        />
-                        <InputField
-                            placeholder={'Password'}
-                            value={password}
-                            action={text => setPassword(text)}
-                            isPassword
-                        />
-                        <InputField
-                            placeholder={'Confirm Password'}
-                            value={passwordConfirmation}
-                            action={text => setPasswordConfirmation(text)}
-                            isPassword
-                        />
-                    </View>
+                        <View style={globalStyle.section}>
+                            <InputField
+                                placeholder={'Email'}
+                                value={email}
+                                action={text => setEmail(text)}
+                            />
+                            <InputField
+                                placeholder={'Username'}
+                                value={username}
+                                action={text => setUsername(text)}
+                            />
+                            <InputField
+                                placeholder={'Password'}
+                                value={password}
+                                action={text => setPassword(text)}
+                                isPassword
+                            />
+                            <InputField
+                                placeholder={'Confirm Password'}
+                                value={passwordConfirmation}
+                                action={text => setPasswordConfirmation(text)}
+                                isPassword
+                            />
+                        </View>
 
-                    <View style={styles.agb}>
-                        <CheckBox
-                            isChecked={checked}
-                            title={'By joining you agree to our'}
-                            action={() => setChecked(!checked)}
-                        />
-                        <Text
-                            style={styles.agbLink}
-                            onPress={() => navigation.navigate('AgbScreen')}
-                        >
-                            {' Term & Condition'}
-                        </Text>
-                    </View>
-
-                    <View style={styles.buttonSection}>
-                        {isLoading ? 
-                            <Text>signing up ...</Text>
-                            :
-                            <Button onPress={() => {
-                                setIsLoading(true);
-                                handleSignup();
-                            }} title={'Register'} />
-                        }
-                    </View>
-
-                    <View style={globalStyle.authHelper}>
-                        <Text style={globalStyle.authHelper_text}>
-                            Already have an account?
+                        <View style={styles.agb}>
+                            <CheckBox
+                                isChecked={checked}
+                                title={'By joining you agree to our'}
+                                action={() => setChecked(!checked)}
+                            />
                             <Text
-                                onPress={() => navigation.navigate('LoginScreen')}
-                                style={globalStyle.inlineLink}> Sign in
+                                style={styles.agbLink}
+                                onPress={() => navigation.navigate('AgbScreen')}
+                            >
+                                {' Term & Condition'}
                             </Text>
-                        </Text>
+                        </View>
+
+                        <View style={styles.buttonSection}>
+                            {isLoading ? 
+                                <Text>signing up ...</Text>
+                                :
+                                <Button onPress={() => {
+                                    setIsLoading(true);
+                                    handleSignup();
+                                }} title={'Register'} />
+                            }
+                        </View>
+
+                        <View style={globalStyle.authHelper}>
+                            <Text style={globalStyle.authHelper_text}>
+                                Already have an account?
+                                <Text
+                                    onPress={() => navigation.navigate('LoginScreen')}
+                                    style={globalStyle.inlineLink}> Sign in
+                                </Text>
+                            </Text>
+                        </View>
                     </View>
-                </View>
-            </ScrollView>
+                </ScrollView>
+            </KeyboardAvoidingView>
         </SafeAreaView>
     );
 };
